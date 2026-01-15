@@ -6,11 +6,12 @@ const supabaseKey = process.env.SUPABASE_KEY;
 
 let supabase;
 
-if (supabaseUrl && supabaseKey) {
-  supabase = createClient(supabaseUrl, supabaseKey);
-} else {
-// if (true) {
-  console.log('⚠️ No Supabase credentials found. Using in-memory database (data will be lost on restart).');
+// FOR DEPLOYMENT: Uncomment the lines below and remove 'if (true) {'
+// if (supabaseUrl && supabaseKey) {
+//   supabase = createClient(supabaseUrl, supabaseKey);
+// } else {
+if (true) {
+  console.log('⚠️ Forced Mock Mode: Using in-memory database locally.');
   console.warn('⚠️ Supabase credentials not found. Using in-memory mock database.');
   
   // Simple in-memory mock for development without keys

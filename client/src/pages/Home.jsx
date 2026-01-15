@@ -26,7 +26,7 @@ const Home = () => {
       }
     } catch (err) {
       console.error(err);
-      alert('Failed to create meeting');
+      alert(`Failed to create meeting: ${err.message}`);
     } finally {
       setLoading(false);
     }
