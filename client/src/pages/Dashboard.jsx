@@ -14,7 +14,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchMeetingData = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/meetings/${code}`);
+        const res = await fetch(`/api/meetings/${code}`);
         const data = await res.json();
         if (data.meeting) {
           setMeeting(data.meeting);
@@ -42,7 +42,7 @@ const Dashboard = () => {
   const handleEndMeeting = async () => {
     if (!confirm('Are you sure you want to end this meeting? Participants will no longer be able to join.')) return;
     try {
-      await fetch('http://localhost:5000/api/end-meeting', {
+      await fetch('/api/end-meeting', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ meetingCode: code })

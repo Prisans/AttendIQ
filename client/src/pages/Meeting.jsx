@@ -29,7 +29,7 @@ const Meeting = () => {
     if (!name.trim()) return;
 
     try {
-      const res = await fetch('http://localhost:5000/api/join', {
+      const res = await fetch('/api/join', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ meetingCode: code, name })
@@ -42,7 +42,7 @@ const Meeting = () => {
         // Setup tracking sender
         handleTrackingUpdate.current = (trackingData) => {
            // Send heartbeat to server
-           fetch('http://localhost:5000/api/track', {
+           fetch('/api/track', {
              method: 'POST',
              headers: { 'Content-Type': 'application/json' },
              body: JSON.stringify({ 
